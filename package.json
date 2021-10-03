@@ -1,0 +1,61 @@
+{
+  "name": "goit-react-hw-03-phonebook",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://stas-yushkov.github.io/goit-react-hw-03-phonebook",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "gh-pages": "^3.2.3",
+    "lodash.debounce": "^4.0.8",
+    "modern-normalize": "^1.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "prop-types": "^15.7.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix",
+    "*.{js,jsx,css,scss,md}": "prettier --write"
+  }
+}
