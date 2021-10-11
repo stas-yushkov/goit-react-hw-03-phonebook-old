@@ -11,9 +11,15 @@ import {
   Container,
 } from './components/';
 
+import localStorage from 'utils/localStorage';
+
+if (!localStorage.load('contacts')) {
+  localStorage.save('contacts', initialContacts);
+}
+
 class App extends Component {
   state = {
-    contacts: initialContacts,
+    contacts: localStorage.load('contacts'),
     filter: '',
   };
 
@@ -28,8 +34,10 @@ class App extends Component {
         return;
       }
 
+      const newContactWithId = { ...newContact, id: uid() };
+
       const newContactList = {
-        contacts: [...prevState.contacts, { ...newContact, id: uid() }],
+        contacts: [...prevState.contacts, newContactWithId],
       };
 
       return { ...prevState, ...newContactList };
@@ -55,6 +63,10 @@ class App extends Component {
     this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.state.filter),
     );
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    localStorage.save('contacts', this.state.contacts);
+  }
 
   render() {
     const filteredContacts = this.filterContacts();
